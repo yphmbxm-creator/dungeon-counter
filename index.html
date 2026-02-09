@@ -2,81 +2,26 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
+  <title>遊戲工具總覽</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2196f3">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>周回降臨計算機</title>
-
   <style>
-    body {
-      font-family: system-ui, sans-serif;
-      text-align: center;
-      padding: 30px;
-    }
-    button {
-      font-size: 20px;
-      padding: 15px 30px;
-      margin: 10px;
-      width: 80%;
-      max-width: 300px;
-    }
-    .stat {
-      font-size: 22px;
-      margin: 10px 0;
-    }
+    body { font-family: system-ui, sans-serif; text-align: center; padding: 30px; }
+    ul { list-style: none; padding: 0; }
+    li { margin: 20px 0; }
+    a { font-size: 22px; text-decoration: none; color: #2196f3; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-  <h2>周回降臨計算機</h2>
-
-  <div class="stat" id="runs">總周回次數：0</div>
-  <div class="stat" id="hits">降臨出現次數：0</div>
-  <div class="stat" id="rate">出現機率：0.00%</div>
-
-  <button onclick="addRun()">周回一次</button>
-  <button onclick="addHit()">降臨出現</button>
-  <button onclick="reset()">歸零</button>
-
-<script>
-  let runs = Number(localStorage.getItem("runs")) || 0;
-  let hits = Number(localStorage.getItem("hits")) || 0;
-
-  function update() {
-    document.getElementById("runs").textContent = `總周回次數：${runs}`;
-    document.getElementById("hits").textContent = `降臨出現次數：${hits}`;
-
-    let rate = runs === 0 ? 0 : (hits / runs * 100);
-    document.getElementById("rate").textContent =
-      `出現機率：${rate.toFixed(2)}%`;
-
-    localStorage.setItem("runs", runs);
-    localStorage.setItem("hits", hits);
-  }
-
-  function addRun() {
-    runs++;
-    update();
-  }
-
-  function addHit() {
-    hits++;
-    update();
-  }
-
-  function reset() {
-    runs = 0;
-    hits = 0;
-    update();
-  }
-
-  update();
-
-if ("serviceWorker" in navigator) {
-  navigator.serviceWorker.register("service-worker.js");
-}
-
-</script>
+  <h1>遊戲工具總覽</h1>
+  <ul>
+    <li><a href="dungeon.html">周回計算機</a></li>
+    <li><a href="feature2.html">功能 2（待開發）</a></li>
+    <li><a href="feature3.html">功能 3（待開發）</a></li>
+  </ul>
 
 </body>
 </html>
